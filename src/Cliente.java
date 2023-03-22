@@ -59,15 +59,13 @@ public class Cliente {
 	}
 
 	//CPF VALIDATION FNCTION//
-	public boolean validarCPF(String cpf){
+	public boolean validarCPF(){
 		String allNum;
-		allNum = cpf.replaceAll("[^0-9]","");
+		allNum = this.cpf.replaceAll("[^0-9]","");
 
 		//Replace all non numeric characters by a void char//
-		System.out.printf("O CPF é %s!\n", allNum);
-		
 		int length = allNum.length();
-		System.out.printf("O tamanho do cpf é %d!\n", length);
+		
 		//Verify the number of digits//
 		if(length != 11)
 			return false;
@@ -77,6 +75,7 @@ public class Cliente {
 			if(allNum.charAt(i) != aux)
 				check = 1;				
 		}
+		
 		//Verify if all digits are the same//
 		if(check == 0)
 			return false;
@@ -95,7 +94,6 @@ public class Cliente {
 		}else{
 			checker = 11 - (soma % 11);
 		}
-		System.out.printf("O primeiro digito verificador é: %d!\n", checker);
 
 		if(checker != Character.getNumericValue(allNum.charAt(9)))
 			return false;
@@ -112,7 +110,6 @@ public class Cliente {
 		}else{
 			checker = 11 - (soma % 11);
 		}
-		System.out.printf("O segundo digito verificador é: %d!\n", checker);
 		
 		if(checker != Character.getNumericValue(allNum.charAt(10)))
 			return false;
