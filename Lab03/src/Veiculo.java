@@ -11,6 +11,7 @@ public class Veiculo {
 			this.anoFabricacao = anoFabricacao;
 		}
 	
+	//GETTERS AND SETTERS//
 	public String getPlaca() {
 		return placa;
 	}

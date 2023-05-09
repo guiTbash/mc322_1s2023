@@ -17,6 +17,7 @@ public class Seguradora {
 		this.listaClientes = listaClientes;
 	}
 	
+	//GETTERS AND SETTERS//
 	public String getNome() {
 		return nome;
 	}
@@ -103,8 +104,8 @@ public class Seguradora {
 		return out;
 	}
 
-	public Boolean gerarSinistro(){
-		Sinistro sinistro = new Sinistro("10/01/2023","Av. Afonso Pena, 443",this,this.listaClientes.get(0).getListaVeiculos().get(0),listaClientes.get(0));
+	public Boolean gerarSinistro(Cliente cliente,Veiculo veiculo,String data,String endereco){
+		Sinistro sinistro = new Sinistro(data,endereco,this,veiculo,cliente);
 		this.listaSinistros.add(sinistro);
 		return true;
 	};
@@ -116,14 +117,22 @@ public class Seguradora {
 				return true;
 			}
 		}
-		System.out.println("Sinistro não encontrado!");
+		System.out.println("\nSinistro não encontrado!");
 		return false;
 	}
+
+	public String listarSinistros(){
+		String out = "";
+		for(int i = 0;i < this.listaSinistros.size();i++){
+			out += listaSinistros.get(i).toString();
+		}
+		return out;
+	}
+
 	//TOSTRING//
 	public String toString(){
 		String out = "";
-		out+= "\n---Seguradora---"+"\nNome: "+getNome()+"\nTelefone: "+getTelefone()+"\nEmail: "+getTelefone()+"\nEndereço: "+getEndereco();
+		out+= getNome()+"\nTelefone: "+getTelefone()+"\nEmail: "+getTelefone()+"\nEndereço: "+getEndereco();
 		return out;
 	}
 }
-

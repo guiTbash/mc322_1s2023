@@ -17,8 +17,7 @@ public class Sinistro {
 		this.cliente = cliente;
 	}
 	
-	//Getters and setters
-	
+	//GETTERS AND SETTERS//
 	public int getId() {
 		return id;
 	}
